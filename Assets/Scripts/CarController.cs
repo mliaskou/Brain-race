@@ -39,6 +39,7 @@ public class CarController : MonoBehaviour
     private Vector3 lastPosition;
 
     public Text speedTxt;
+    private float powerUpStrength = 20f;
     public void Awake()
     {
         if(StateManager.Color1== true)
@@ -114,6 +115,10 @@ public class CarController : MonoBehaviour
         {
             speed += 2;
         }
+       else if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            speed -= 2;
+        }
 
         lastPosition = transform.position;
 
@@ -126,5 +131,16 @@ public class CarController : MonoBehaviour
         return SteerAngle;
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle") )
+        {
+            Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
+            enemyRigidbody.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
+            Debug.Log("Collided with:" + collision.gameObject.name + "with power set to" );
+        }
+    }
 
 }
