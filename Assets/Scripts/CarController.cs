@@ -102,12 +102,12 @@ public class CarController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed, Space.World);
+            transform.Rotate(new Vector3(0, 2, 0) * Time.deltaTime * speed, Space.World);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed, Space.World);
+            transform.Rotate(new Vector3(0, -2, 0) * Time.deltaTime * speed, Space.World);
         }
 
         t += 0.2f *Time.fixedDeltaTime;
@@ -132,15 +132,6 @@ public class CarController : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle") )
-        {
-            Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
-            enemyRigidbody.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
-            Debug.Log("Collided with:" + collision.gameObject.name + "with power set to" );
-        }
-    }
+ 
 
 }
