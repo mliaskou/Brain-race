@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnAround : MonoBehaviour
 {
     public GameObject car;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +13,9 @@ public class TurnAround : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        car.transform.Rotate(0.0f, 0.5f, 0.0f, Space.Self);
+        
+        car.transform.Rotate(0.0f, -1f, 0.0f, Space.Self);
     }
 }
