@@ -12,6 +12,7 @@ public class LineChangeColor : MonoBehaviour
     public Color green = Color.green;
     public Color yellow = Color.yellow;
     public Color white = Color.white;
+    public Color black = Color.black;
 
     public GameObject carBody;
     public GameObject line;
@@ -43,13 +44,13 @@ public class LineChangeColor : MonoBehaviour
     {
 
         SetPositionsLineRenderer();
-        
-
     }
 
 
     void SetPositionsLineRenderer()
     {
+        Renderer renderedBody = carBody.GetComponent<MeshRenderer>();
+        Color bodyColor = renderedBody.material.color;
         for (int i = 0; i < rendererLine.positionCount - 1; i++)
         {
             Debug.Log("Position " + i + " is " + rendererLine.GetPosition(i));
@@ -63,13 +64,16 @@ public class LineChangeColor : MonoBehaviour
         if (isCollided == true)
         {
             pointScore.IncreaseScore();
-
+            rendererLine.startColor = bodyColor;
+            rendererLine.endColor = bodyColor;
             isCollided = false;
 
         }
         else if (isCollided == false)
         {
             pointScore.DecreaseScore();
+            rendererLine.startColor = Color.black;
+            rendererLine.endColor = Color.black;
         }
     }
 

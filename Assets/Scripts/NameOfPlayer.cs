@@ -6,32 +6,14 @@ using UnityEngine.UI;
 
 public class NameOfPlayer : MonoBehaviour
 {
-    public string NamePlayer;
-    public string SaveName;
+    public InputField textBox;
+    
 
-    public Text InputText;
-    public Text LoadText;
-
-    // Start is called before the first frame update
-    void Start()
+    public void ClickButton()
     {
-        
+        PlayerPrefs.SetString("PlayerName", textBox.text);
+        Debug.Log("Your name is: " + PlayerPrefs.GetString("PlayerName"));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        NamePlayer = PlayerPrefs.GetString("name", "none");
-        LoadText.text = NamePlayer;
-    }
-
-    public void SetName()
-    {
-
-        SaveName = InputText.text;
-        PlayerPrefs.SetString("name", "SaveName");
-    }
-
     public void LoadScene()
     {
         SceneManager.LoadScene("StartScene");

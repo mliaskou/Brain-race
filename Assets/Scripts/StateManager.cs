@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour
@@ -26,9 +27,12 @@ public class StateManager : MonoBehaviour
     public static bool Color5;
 
     public GameObject line;
+
+    public Text playerTxt;
+    
     void Awake()
     {
-
+        
         // if the singleton hasn't been initialized yet
         if (Instance != null && Instance != this)
         {
@@ -38,9 +42,16 @@ public class StateManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+        
     }
 
+    private void Start()
+    {
+        NameOfPlayer nameOfPlayer = GameObject.FindObjectOfType<NameOfPlayer>();
 
+        playerTxt.text = PlayerPrefs.GetString("PlayerName");
+    }
     public void ShowIt()
     {
         
