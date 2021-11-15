@@ -58,7 +58,6 @@ public class StateManager : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Yellow")
         {
             cube.GetComponent<MeshRenderer>().material.color = yellow;
-            line.GetComponent<Renderer>().sharedMaterial.color = yellow;
             Color1 = true;
            
         }
