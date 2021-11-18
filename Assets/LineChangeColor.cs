@@ -25,7 +25,7 @@ public class LineChangeColor : MonoBehaviour
 
     private Vector3[] positions = new Vector3[3];
     private Vector3[] pos;
-
+    //public AudioSource notCollisionMusic;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class LineChangeColor : MonoBehaviour
         rendererLine.startColor = bodyColor;
         rendererLine.endColor = bodyColor;//colorGradient.SetKeys(new GradientColorKey[] { new GradientColorKey(bodyColor, 1.0f) },
                                           //new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 1.0f) });
-        
+        //notCollisionMusic.enabled = false;
     }
 
     private void FixedUpdate()
@@ -67,6 +67,7 @@ public class LineChangeColor : MonoBehaviour
             rendererLine.startColor = bodyColor;
             rendererLine.endColor = bodyColor;
             isCollided = false;
+            //notCollisionMusic.enabled = false;
 
         }
         else if (isCollided == false)
@@ -74,6 +75,7 @@ public class LineChangeColor : MonoBehaviour
             pointScore.DecreaseScore();
             rendererLine.startColor = Color.black;
             rendererLine.endColor = Color.black;
+            //notCollisionMusic.enabled = true;
         }
     }
 

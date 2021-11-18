@@ -8,6 +8,9 @@ public class Obstacle : MonoBehaviour
     public PointsScore pointsScore;
     public Text txt;
     public GameObject obstacle;
+    public LifePanelAdd lifepanelAdd;
+
+    public int number = 1;
 
     private float powerUpStrength = 50f;
 
@@ -16,6 +19,7 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         obstacle.SetActive(false);
+        number = Random.Range(0, lifepanelAdd.Slots.Length - 1);
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -25,6 +29,7 @@ public class Obstacle : MonoBehaviour
             pointsScore.DecreaseObstaclePoints();
             txt.text = "You hit an obstacle";
 
+            lifepanelAdd.Slots[number].SetActive(false);
             Rigidbody carRigidbody = car.GetComponent<Rigidbody>();
             carRigidbody.AddForce(car.transform.position * powerUpStrength, ForceMode.Impulse);
             Debug.Log("Collided with:" + car.name + "with power set to");

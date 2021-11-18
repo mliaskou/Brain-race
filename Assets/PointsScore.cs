@@ -10,7 +10,7 @@ public class PointsScore : MonoBehaviour
     private float minPoints = 1;
     private int maxPoints = 100;
 
-    private static float points = 0;
+    public float points = 0;
 
     float elapsed = 0;
 
