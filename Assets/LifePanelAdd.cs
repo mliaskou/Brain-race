@@ -7,6 +7,7 @@ public class LifePanelAdd : MonoBehaviour
     public static LifePanelAdd Instance;
     public GameObject[] Slots;
 
+   
 
     void Awake()
     {
@@ -21,5 +22,10 @@ public class LifePanelAdd : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
+    
+
+
+   
+
 
 }

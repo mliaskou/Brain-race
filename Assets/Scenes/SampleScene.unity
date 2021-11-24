@@ -272,11 +272,11 @@ GameObject:
   - component: {fileID: 33211861}
   - component: {fileID: 33211860}
   - component: {fileID: 33211859}
-  - component: {fileID: 33211858}
   - component: {fileID: 33211862}
+  - component: {fileID: 33211858}
   m_Layer: 0
   m_Name: heart (1)
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,11 +290,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 33211857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec2ae1d777428e4296d17825640838b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepanelAdd: {fileID: 1552287438}
-  number: 2
 --- !u!23 &33211859
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -613,11 +611,11 @@ GameObject:
   - component: {fileID: 64817905}
   - component: {fileID: 64817904}
   - component: {fileID: 64817903}
-  - component: {fileID: 64817902}
   - component: {fileID: 64817906}
+  - component: {fileID: 64817902}
   m_Layer: 0
   m_Name: heart (4)
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,11 +629,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 64817901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec2ae1d777428e4296d17825640838b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepanelAdd: {fileID: 1552287438}
-  number: 5
 --- !u!23 &64817903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -761,8 +757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsScore: {fileID: 390068873}
-  txt: {fileID: 890696636}
-  obstacle: {fileID: 623584559}
+  txt: {fileID: 1997190979}
+  obstacleText: {fileID: 623584559}
   lifepanelAdd: {fileID: 1552287438}
   number: 1
   car: {fileID: 919132148802266271}
@@ -1816,7 +1812,7 @@ RectTransform:
   m_Children:
   - {fileID: 340648287}
   m_Father: {fileID: 1662931098}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4376,7 +4372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt: {fileID: 1997190979}
-  points: 0
+  points: 10
   lineChangeColor: {fileID: 1654397953}
   carController: {fileID: 722278865}
 --- !u!4 &390068874
@@ -5051,11 +5047,11 @@ GameObject:
   - component: {fileID: 432739219}
   - component: {fileID: 432739218}
   - component: {fileID: 432739217}
-  - component: {fileID: 432739216}
   - component: {fileID: 432739220}
+  - component: {fileID: 432739216}
   m_Layer: 0
   m_Name: heart (3)
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5069,11 +5065,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 432739215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec2ae1d777428e4296d17825640838b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepanelAdd: {fileID: 1552287438}
-  number: 4
 --- !u!23 &432739217
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5480,7 +5474,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1662931098}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5715,8 +5709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsScore: {fileID: 390068873}
-  txt: {fileID: 890696636}
-  obstacle: {fileID: 623584559}
+  txt: {fileID: 1997190979}
+  obstacleText: {fileID: 623584559}
   lifepanelAdd: {fileID: 1552287438}
   number: 1
   car: {fileID: 919132148802266271}
@@ -8516,6 +8510,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e289bf5debb17f6459818c207d781953, type: 3}
+--- !u!1 &863630310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863630311}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863630311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863630310}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 82, y: 44, z: 1996.7325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2103461754}
+  - {fileID: 1109787187}
+  m_Father: {fileID: 1662931098}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &866888987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9811,8 +9837,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsScore: {fileID: 390068873}
-  txt: {fileID: 890696636}
-  obstacle: {fileID: 623584559}
+  txt: {fileID: 1997190979}
+  obstacleText: {fileID: 623584559}
   lifepanelAdd: {fileID: 1552287438}
   number: 1
   car: {fileID: 919132148802266271}
@@ -10638,17 +10664,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109787186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1996.7325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1997190978}
-  m_Father: {fileID: 1662931098}
+  m_Father: {fileID: 863630311}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -371, y: 174.4}
-  m_SizeDelta: {x: -760.5, y: -392.20844}
+  m_AnchoredPosition: {x: -453, y: 130.4}
+  m_SizeDelta: {x: 227.25, y: 35.041565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109787188
 MonoBehaviour:
@@ -13488,7 +13514,7 @@ Transform:
   m_Children:
   - {fileID: 1776266441}
   m_Father: {fileID: 1662931098}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1552287438
 MonoBehaviour:
@@ -14072,7 +14098,7 @@ GameObject:
   - component: {fileID: 1612096578}
   - component: {fileID: 1612096577}
   m_Layer: 5
-  m_Name: Points
+  m_Name: speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14734,10 +14760,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 623584560}
-  - {fileID: 1109787187}
-  - {fileID: 2103461754}
   - {fileID: 1552287437}
   - {fileID: 452473695}
+  - {fileID: 863630311}
   - {fileID: 161365452}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -15654,11 +15679,11 @@ GameObject:
   - component: {fileID: 1778682282}
   - component: {fileID: 1778682281}
   - component: {fileID: 1778682280}
-  - component: {fileID: 1778682279}
   - component: {fileID: 1778682283}
+  - component: {fileID: 1778682279}
   m_Layer: 0
   m_Name: heart (2)
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15672,11 +15697,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778682278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec2ae1d777428e4296d17825640838b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepanelAdd: {fileID: 1552287438}
-  number: 3
 --- !u!23 &1778682280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23837,8 +23860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsScore: {fileID: 390068873}
-  txt: {fileID: 890696636}
-  obstacle: {fileID: 623584559}
+  txt: {fileID: 1997190979}
+  obstacleText: {fileID: 623584559}
   lifepanelAdd: {fileID: 1552287438}
   number: 1
   car: {fileID: 919132148802266271}
@@ -24481,17 +24504,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103461753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1996.7325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1612096576}
-  m_Father: {fileID: 1662931098}
-  m_RootOrder: 2
+  m_Father: {fileID: 863630311}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -371, y: 132}
-  m_SizeDelta: {x: -760.5, y: -388.8699}
+  m_AnchoredPosition: {x: -453, y: 88}
+  m_SizeDelta: {x: 227.25, y: 38.380096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103461755
 MonoBehaviour:
@@ -25176,7 +25199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148802266271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.5, y: -0.9, z: 6.88}
+  m_LocalPosition: {x: 30, y: -0.9, z: 6.88}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 971719434}
@@ -25238,6 +25261,7 @@ GameObject:
   - component: {fileID: 722278865}
   - component: {fileID: 919132148802266272}
   - component: {fileID: 919132148802266273}
+  - component: {fileID: 919132148802266274}
   m_Layer: 8
   m_Name: _ar
   m_TagString: Player
@@ -25272,8 +25296,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.094657, y: 2.0597668, z: 7.573074}
-  m_Center: {x: -3.8130603, y: 1.0188379, z: -2.358794}
+  m_Size: {x: 4.094657, y: 3.432352, z: 7.573074}
+  m_Center: {x: -3.8130603, y: 1.1168795, z: -2.358794}
+--- !u!114 &919132148802266274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148802266271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateInactive: 0
+  lifePanelAdd: {fileID: 1552287438}
 --- !u!1 &919132149480787099
 GameObject:
   m_ObjectHideFlags: 0
@@ -27599,11 +27637,11 @@ GameObject:
   - component: {fileID: 5439488022635824473}
   - component: {fileID: 4927471347396439934}
   - component: {fileID: 6264418496907269347}
-  - component: {fileID: 6628541849240013847}
   - component: {fileID: 6628541849240013848}
+  - component: {fileID: 6628541849240013847}
   m_Layer: 0
   m_Name: heart
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27617,11 +27655,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6628541849240013846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d0f104140c891428729050bc19b64c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec2ae1d777428e4296d17825640838b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepanelAdd: {fileID: 1552287438}
-  number: 1
 --- !u!65 &6628541849240013848
 BoxCollider:
   m_ObjectHideFlags: 0

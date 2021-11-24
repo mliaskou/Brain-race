@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class LifeBonusGain : MonoBehaviour
 {
-    public LifePanelAdd lifepanelAdd;
-    private int lives = 0;
-    public int number = 1;
+    
+    public bool activateInactive;
+    public LifePanelAdd lifePanelAdd;
 
-    private void Start()
+    void OnTriggerEnter(Collider other)
     {
-         
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
+        if (other.gameObject.tag=="Heart")
         {
-            lives++;
-            lifepanelAdd.Slots[number - 1].SetActive(true);
-            Destroy(gameObject);
+            for (int i = 0; i <lifePanelAdd.Slots.Length; i++)
+            {
+                if (lifePanelAdd.Slots[i].activeSelf == false)
+                {
+                    lifePanelAdd.Slots[i].SetActive(true);
+                    break;
+                }
+            }
+
+            Destroy(other.gameObject);
+
         }
     }
+
 }

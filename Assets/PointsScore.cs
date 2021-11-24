@@ -12,13 +12,14 @@ public class PointsScore : MonoBehaviour
 
     public float points = 0;
 
-    float elapsed = 0;
-
     private float pointsLengthOfLine;
     public LineChangeColor lineChangeColor;
 
     public CarController carController;
-
+    public void Start()
+    {
+        txt.text = "Points:" + points;
+    }
     public void Update()
     {
         minPoints = (maxPoints / lineChangeColor.LengthOfLine())* carController.currentSpeed;

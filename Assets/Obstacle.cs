@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 {
     public PointsScore pointsScore;
     public Text txt;
-    public GameObject obstacle;
+    public GameObject obstacleText;
     public LifePanelAdd lifepanelAdd;
 
     public int number = 1;
@@ -18,27 +18,32 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
-        obstacle.SetActive(false);
-        number = Random.Range(0, lifepanelAdd.Slots.Length - 1);
+        obstacleText.SetActive(false);
+        
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.name == "_ar")
         {
-            obstacle.SetActive(true);
+            obstacleText.SetActive(true);
             pointsScore.DecreaseObstaclePoints();
-            txt.text = "You hit an obstacle";
+            obstacleText.GetComponentInChildren<Text>().text = "You hit an obstacle";
 
-            lifepanelAdd.Slots[number].SetActive(false);
+            for (int i = lifepanelAdd.Slots.Length -1; i >= 0 ; i--)
+            {
+                if (lifepanelAdd.Slots[i].activeSelf == true)
+                {
+                    lifepanelAdd.Slots[i].SetActive(false);
+                    break;
+                }
+            }
             Rigidbody carRigidbody = car.GetComponent<Rigidbody>();
             carRigidbody.AddForce(car.transform.position * powerUpStrength, ForceMode.Impulse);
             Debug.Log("Collided with:" + car.name + "with power set to");
+            this.gameObject.SetActive(false);
+            obstacleText.SetActive(false);
+
         }
     }
 
-    private void OnCollisionExit(Collision other)
-    {
-        obstacle.SetActive(false);
-
-    }
 }
