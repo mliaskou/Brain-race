@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PointsScore : MonoBehaviour
@@ -16,6 +17,8 @@ public class PointsScore : MonoBehaviour
     public LineChangeColor lineChangeColor;
 
     public CarController carController;
+
+    public GameObject ReloadScenePanel;
     public void Start()
     {
         txt.text = "Points:" + points;
@@ -54,6 +57,9 @@ public class PointsScore : MonoBehaviour
             points = 0;
             txt.text = "Points:" + Mathf.RoundToInt(points);
             Debug.Log("Game Over");
+            carController.speed = 0;
+            ReloadScenePanel.SetActive(true);
+            
         }
         
        
@@ -65,4 +71,20 @@ public class PointsScore : MonoBehaviour
         txt.text = "Points:" + points;
     }
 
+
+    public void ReloadScene()
+    {
+        StartCoroutine("ReloadSceneAgain");
+    }
+
+    public void QuitGame()
+    {
+
+    }
+
+    IEnumerator ReloadSceneAgain()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("SampleScene");
+    }
 }

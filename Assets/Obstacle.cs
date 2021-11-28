@@ -12,18 +12,35 @@ public class Obstacle : MonoBehaviour
 
     public int number = 1;
 
-    private float powerUpStrength = 50f;
-
     public GameObject car;
+
+    public float forceApplied = 20f;
 
     private void Start()
     {
         obstacleText.SetActive(false);
         
     }
-    private void OnCollisionExit(Collision other)
+
+
+
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.name == "_ar")
+        {
+            obstacleText.SetActive(true);
+            Rigidbody carRigidbody = gameObject.GetComponent<Rigidbody>();
+            Vector3 awayfromObstacle = (other.gameObject.transform.position - this.transform.position);
+            carRigidbody.AddForce(awayfromObstacle * forceApplied, ForceMode.Impulse);
+            
+        }
+
+    }  
+        
+        
+        private void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.name == "_ar")
         {
             obstacleText.SetActive(true);
             pointsScore.DecreaseObstaclePoints();
@@ -37,10 +54,8 @@ public class Obstacle : MonoBehaviour
                     break;
                 }
             }
-            Rigidbody carRigidbody = car.GetComponent<Rigidbody>();
-            carRigidbody.AddForce(car.transform.position * powerUpStrength, ForceMode.Impulse);
-            Debug.Log("Collided with:" + car.name + "with power set to");
-            this.gameObject.SetActive(false);
+            
+            
             obstacleText.SetActive(false);
 
         }
