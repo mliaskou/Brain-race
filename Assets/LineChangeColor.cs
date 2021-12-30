@@ -53,8 +53,8 @@ public class LineChangeColor : MonoBehaviour
         Color bodyColor = renderedBody.material.color;
         for (int i = 0; i < rendererLine.positionCount - 1; i++)
         {
-            Debug.Log("Position " + i + " is " + rendererLine.GetPosition(i));
-            Debug.Log("Position " + (i + 1) + " is " + rendererLine.GetPosition(i + 1));
+            //Debug.Log("Position " + i + " is " + rendererLine.GetPosition(i));
+            //Debug.Log("Position " + (i + 1) + " is " + rendererLine.GetPosition(i + 1));
             if (Physics.Linecast(rendererLine.GetPosition(i), rendererLine.GetPosition(i + 1), layermask))
             {
                 isCollided = true;

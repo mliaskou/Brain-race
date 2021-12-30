@@ -84,6 +84,13 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            NextScene();
+        }
+    }
     public void NextScene()
     {
         SceneManager.LoadScene("SampleScene");

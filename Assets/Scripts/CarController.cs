@@ -75,7 +75,7 @@ public class CarController : MonoBehaviour
        // transform.eulerAngles = new Vector3(0, HandleSteering(),0);
 
     }
-    private void GetInput()
+    public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
