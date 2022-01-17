@@ -9,22 +9,24 @@ using System.Linq;
 public class TriggerRound : MonoBehaviour
 {
     private int round = 0;
-    public Text finalScore;
-    public GameObject finalScoreObject;
+    
     public PointsScore pointScore;
     public int initialPoints;
     public int saveFinalPoints;
-    public Text playerNameText;
+    public GameObject scoreBoard;
+    //public Text playerNameText;
 
     public Dictionary<string, int> thedictionary = new Dictionary<string, int>();
     public Vector2 scrollPosition = Vector2.zero;
-    private void Start()
+    private void Awake()
     {
-        if (File.Exists(@"myfile.txt"))
+        if (File.Exists(@"myfile.txt") && File.ReadAllLines(@"myfile.txt").Length>0)
         {
             thedictionary = File.ReadAllLines(@"myfile.txt")
                                        .Select(x => x.Split('='))
                                        .ToDictionary(x => x[0], x => Int32.Parse(x[1]));
+
+            thedictionary = thedictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
         }
         pointScore = GameObject.FindObjectOfType<PointsScore>();
     }
@@ -48,22 +50,23 @@ public class TriggerRound : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             round++;
-            if (round >= 2)
+            if (round >= 1)
             {
-                finalScoreObject.SetActive(true);
+                /*finalScoreObject.SetActive(true);
                 finalScore.text = "Final score is:  " + Mathf.RoundToInt(pointScore.points);
-                SetFinalScore();
-                playerNameText.text = "PlayerName:" + PlayerPrefs.GetString("PlayerName");
+                 SetFinalScore();
+                playerNameText.text = "PlayerName:" + PlayerPrefs.GetString("PlayerName");*/
                 string playerName = PlayerPrefs.GetString("PlayerName");
                 int Score = Mathf.RoundToInt(pointScore.points);
                 thedictionary.Add(playerName, Score);
-
-
                 File.WriteAllLines("myfile.txt", thedictionary.Select(x => x.Key + "=" + x.Value).ToArray());
+                scoreBoard.SetActive(true);
                 //OnGUI();
             }
         }
     }
+
+
 
     /*void OnGUI()
     {
