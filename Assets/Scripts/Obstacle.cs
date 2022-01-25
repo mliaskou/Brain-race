@@ -10,18 +10,18 @@ public class Obstacle : MonoBehaviour
     public GameObject obstacleText;
     public LifePanelAdd lifepanelAdd;
     public CarController carController;
-
+    public GameObject car;
     public int number = 1;
 
-    public GameObject car;
+    public GameObject carPosition;
 
-    public int forceApplied = 5;
+    public int forceApplied = 2;
     
-    public void Start()
+    /*public void Start()
     {
         obstacleText.SetActive(false);
         
-    }
+    }*/
 
 
 
@@ -29,18 +29,18 @@ public class Obstacle : MonoBehaviour
     {
         if (other.gameObject.name == "_ar")
         {
-            obstacleText.SetActive(true);
+            //obstacleText.SetActive(true);
             Rigidbody obstacleRigidbody = this.gameObject.GetComponent<Rigidbody>();
             int carSpeed = (int)carController.speed;
-            //Vector3 awayfromObstacle = ( other.gameObject.transform.position- this.transform.position );
-            obstacleRigidbody.AddForce(this.gameObject.transform.position * forceApplied, ForceMode.Impulse);
+            Vector3 awayfromObstacle = ( carPosition.gameObject.transform.position- this.transform.position );
+            obstacleRigidbody.AddForce(awayfromObstacle * forceApplied, ForceMode.Impulse);
             //obstacleRigidbody.MovePosition(this.transform.position * carSpeed);
         }
 
     }  
         
         
-        private void OnCollisionExit(Collision col)
+       /* private void OnCollisionExit(Collision col)
     {
         if (col.gameObject.name == "_ar")
         {
@@ -61,6 +61,6 @@ public class Obstacle : MonoBehaviour
             obstacleText.SetActive(false);
 
         }
-    }
+    }*/
 
 }

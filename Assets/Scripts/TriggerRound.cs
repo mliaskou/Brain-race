@@ -14,7 +14,12 @@ public class TriggerRound : MonoBehaviour
     public int initialPoints;
     public int saveFinalPoints;
     public GameObject scoreBoard;
+    private int slotActive =0;
     //public Text playerNameText;
+
+    public LifePanelAdd lifepanelAdd;
+    public CarController carController;
+   
 
     public Dictionary<string, int> thedictionary = new Dictionary<string, int>();
     public Vector2 scrollPosition = Vector2.zero;
@@ -50,7 +55,7 @@ public class TriggerRound : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             round++;
-            if (round >= 1)
+            if (round >= 2)
             {
                 /*finalScoreObject.SetActive(true);
                 finalScore.text = "Final score is:  " + Mathf.RoundToInt(pointScore.points);
@@ -60,13 +65,41 @@ public class TriggerRound : MonoBehaviour
                 int Score = Mathf.RoundToInt(pointScore.points);
                 thedictionary.Add(playerName, Score);
                 File.WriteAllLines("myfile.txt", thedictionary.Select(x => x.Key + "=" + x.Value).ToArray());
-                scoreBoard.SetActive(true);
+                
+                foreach( GameObject slot in lifepanelAdd.Slots)
+                {
+                    if(slot.activeSelf)
+                    {
+                        slotActive++;
+                    }
+
+                }
+
+                if (pointScore.points >= 30 && slotActive >= 2)
+                {
+                    Debug.Log("You won");
+                    carController.speed = 0;
+                    scoreBoard.SetActive(true);
+                    
+                }
+                else if(pointScore.points<30 && slotActive <2)
+                {
+                    pointScore.GameOver();
+                }
+                if(pointScore.points >= 30 && slotActive < 2)
+                {
+                    pointScore.GameOver();
+
+                }
                 //OnGUI();
             }
         }
     }
 
-
+    public void CloseWindow()
+    {
+        scoreBoard.SetActive(false);
+    }
 
     /*void OnGUI()
     {

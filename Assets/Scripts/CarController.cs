@@ -40,6 +40,9 @@ public class CarController : MonoBehaviour
 
     public Text speedTxt;
     private float powerUpStrength = 20f;
+
+    public float speedMax;
+    public float speedMin = 0f;
     public void Awake()
     {
         if(StateManager.Color1== true)
@@ -85,7 +88,15 @@ public class CarController : MonoBehaviour
     private void HandleMotor()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+        if (speed > speedMax)
+        {
+            speed = speedMax;
+        }
 
+        if (speed < speedMin)
+        {
+            speed = speedMin;
+        }
         if (lastPosition.z > 0)
         {
             currentSpeed = Vector3.Distance(transform.position, lastPosition);
@@ -120,6 +131,7 @@ public class CarController : MonoBehaviour
             speed -= 2;
         }
 
+       
         lastPosition = transform.position;
 
         speedTxt.text = "Speed:" + speed.ToString();
