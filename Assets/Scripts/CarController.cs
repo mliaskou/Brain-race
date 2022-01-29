@@ -45,26 +45,9 @@ public class CarController : MonoBehaviour
     public float speedMin = 0f;
     public void Awake()
     {
-        if(StateManager.Color1== true)
-        {
-            cube.GetComponent<MeshRenderer>().material.color = Color.yellow;
-        }
-        if (StateManager.Color2 == true)
-        {
-            cube.GetComponent<MeshRenderer>().material.color = Color.red;
-        }
-        if (StateManager.Color3 == true)
-        {
-            cube.GetComponent<MeshRenderer>().material.color = Color.blue;
-        }
-        if (StateManager.Color4 == true)
-        {
-            cube.GetComponent<MeshRenderer>().material.color = Color.green;
-        }
-        if (StateManager.Color5 == true)
-        {
-            cube.GetComponent<MeshRenderer>().material.color = Color.white;
-        }
+        
+        cube.GetComponent<MeshRenderer>().material.color = StateManager.carColor;
+        
     }
     private void FixedUpdate()
     {

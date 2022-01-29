@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿      using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
@@ -20,11 +20,7 @@ public class StateManager : MonoBehaviour
     public GameObject prefab;
 
     
-    public static bool Color1;
-    public static bool Color2;
-    public static bool Color3;
-    public static bool Color4;
-    public static bool Color5;
+    public static Color carColor;
 
     public GameObject line;
 
@@ -51,6 +47,7 @@ public class StateManager : MonoBehaviour
         NameOfPlayer nameOfPlayer = GameObject.FindObjectOfType<NameOfPlayer>();
 
         playerTxt.text = PlayerPrefs.GetString("PlayerName");
+        carColor = blue;
     }
     public void ShowIt()
     {
@@ -58,29 +55,29 @@ public class StateManager : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Yellow")
         {
             cube.GetComponent<MeshRenderer>().material.color = yellow;
-            Color1 = true;
+            carColor = yellow;
            
         }
 
         if(EventSystem.current.currentSelectedGameObject.name == "Red")
         {
             cube.GetComponent<MeshRenderer>().material.color = red;
-            Color2 = true;
+            carColor = red;
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Blue")
         {
             cube.GetComponent<MeshRenderer>().material.color = blue;
-            Color3 = true;
+            carColor = blue;
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Green")
         {
             cube.GetComponent<MeshRenderer>().material.color = green;
-            Color4 = true;
+            carColor = green;
         }
         if (EventSystem.current.currentSelectedGameObject.name == "White")
         {
             cube.GetComponent<MeshRenderer>().material.color = white;
-            Color5 = true;
+            carColor = white;
         }
     }
 
