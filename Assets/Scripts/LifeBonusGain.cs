@@ -16,11 +16,37 @@ public class LifeBonusGain : MonoBehaviour
 
     public LifePanelAdd lifepanelAdd;
     public PointsScore pointsScore;
+
+    private bool livesAreActive = true;
     public void Start()
     {
         obstacleText.SetActive(false);
 
+
+        
     }
+
+    public void Update()
+    {
+        for (int i = 0; i < lifePanelAdd.Slots.Length; i++)
+        {
+            if (lifePanelAdd.Slots[i].activeSelf == false)
+            {
+                livesAreActive = false;
+
+                break;
+            }
+
+            Debug.Log("IsEmpty");
+        }
+
+        if (livesAreActive ==false)
+        {
+            
+        }
+    }
+
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Heart"))
@@ -33,6 +59,8 @@ public class LifeBonusGain : MonoBehaviour
                     
                     break;
                 }
+
+                
             }
 
             Destroy(other.gameObject);
@@ -60,20 +88,21 @@ public class LifeBonusGain : MonoBehaviour
             obstacleText.SetActive(true);
             pointsScore.DecreaseObstaclePoints();
             obstacleText.GetComponentInChildren<Text>().text = "You hit an obstacle";
+          }
+        for (int i = lifepanelAdd.Slots.Length - 1; i >= 0; i--)
+        {
 
-            for (int i = lifepanelAdd.Slots.Length - 1; i >= 0; i--)
+            if (lifepanelAdd.Slots[i].activeSelf == true)
             {
-                if (lifepanelAdd.Slots[i].activeSelf == true)
-                {
-                    lifepanelAdd.Slots[i].SetActive(false);
-                    break;
-                }
+                lifepanelAdd.Slots[i].SetActive(false);
+
+
+                break;
             }
-
-
-            
-
         }
+            
+        
+
         obstacleText.SetActive(false);
     }
 }

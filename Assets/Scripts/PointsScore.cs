@@ -57,7 +57,7 @@ public class PointsScore : MonoBehaviour
         {
             points = 0;
             txt.text = "Points:" + Mathf.RoundToInt(points);
-            GameOver();
+            //GameOver();
         }
         
        

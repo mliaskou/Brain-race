@@ -43,6 +43,9 @@ public class CarController : MonoBehaviour
 
     public float speedMax;
     public float speedMin = 0f;
+
+    [SerializeField] GameObject rightText;
+    [SerializeField] GameObject leftText;
     public void Awake()
     {
         
@@ -97,11 +100,22 @@ public class CarController : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(new Vector3(0, 2, 0) * Time.deltaTime * speed, Space.World);
+            rightText.SetActive(true);
+        }
+        else
+        {
+            rightText.SetActive(false);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(new Vector3(0, -2, 0) * Time.deltaTime * speed, Space.World);
+            leftText.SetActive(true);
+        }
+        else
+           
+        {
+            leftText.SetActive(false);
         }
 
         t += 0.2f *Time.fixedDeltaTime;

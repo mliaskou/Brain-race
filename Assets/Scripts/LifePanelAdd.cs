@@ -24,7 +24,14 @@ public class LifePanelAdd : MonoBehaviour
     }
     
 
-
+    void Update()
+    {
+        if (Slots == null || Slots.Length == 0)
+        {
+            Debug.Log("Is Empty");
+            //pointsScore.GameOver();
+        }
+    }
    
 
 

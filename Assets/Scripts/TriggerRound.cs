@@ -75,21 +75,16 @@ public class TriggerRound : MonoBehaviour
 
                 }
 
-                if (pointScore.points >= 30 && slotActive >= 2)
+                if ( slotActive > 0) // If the player has at least one heart, then wins
                 {
                     Debug.Log("You won");
                     carController.speed = 0;
                     scoreBoard.SetActive(true);
                     
                 }
-                else if(pointScore.points<30 && slotActive <2)
+                else if(slotActive <=0)
                 {
-                    pointScore.GameOver();
-                }
-                if(pointScore.points >= 30 && slotActive < 2)
-                {
-                    pointScore.GameOver();
-
+                    pointScore.GameOver(); // if the player has no hearts, then loses the game
                 }
                 //OnGUI();
             }
