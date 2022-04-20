@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Timers;
 using System;
 
 public class CarController : MonoBehaviour
@@ -44,35 +45,53 @@ public class CarController : MonoBehaviour
     public float speedMax;
     public float speedMin = 0f;
 
+    
+    private int timeStart =3;
+    [SerializeField] Text timeText;
     [SerializeField] GameObject rightText;
     [SerializeField] GameObject leftText;
+    [SerializeField] float timeLeft = 3.0f;
+  
     public void Awake()
     {
         
         cube.GetComponent<MeshRenderer>().material.color = StateManager.carColor;
         
     }
-    private void FixedUpdate()
-    {
-        GetInput();
-        HandleMotor();
-        HandleSteering();
-    }
 
     private void Update()
     {
-       // transform.eulerAngles = new Vector3(0, HandleSteering(),0);
-
+      
     }
+   
+
+    private void FixedUpdate()
+    {
+        timeLeft -= Time.deltaTime;
+        //timeText.text = (timeLeft).ToString("0");
+        timeLeft = Mathf.Clamp(timeLeft, 0, 3);
+        timeText.text = (timeLeft).ToString("0");
+        if (timeLeft<=0)
+        {
+            GetInput();
+            HandleMotor();
+            HandleSteering();
+            timeLeft = 0;
+            timeText.enabled = false;
+
+        }
+         
+    }
+
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         
     }
-
     private void HandleMotor()
     {
+        
         transform.position += transform.forward * speed * Time.deltaTime;
         if (speed > speedMax)
         {

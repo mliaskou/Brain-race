@@ -72,7 +72,7 @@ public class LineChangeColor : MonoBehaviour
         }
         else if (isCollided == false)
         {
-            pointScore.DecreaseScore();
+            //pointScore.DecreaseScore();
             rendererLine.startColor = Color.black;
             rendererLine.endColor = Color.black;
             //notCollisionMusic.enabled = true;

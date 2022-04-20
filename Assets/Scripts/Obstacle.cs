@@ -17,13 +17,6 @@ public class Obstacle : MonoBehaviour
 
     public int forceApplied = 2;
     
-    /*public void Start()
-    {
-        obstacleText.SetActive(false);
-        
-    }*/
-
-
 
     private void OnCollisionEnter(Collision other)
     {
@@ -38,29 +31,5 @@ public class Obstacle : MonoBehaviour
         }
 
     }  
-        
-        
-       /* private void OnCollisionExit(Collision col)
-    {
-        if (col.gameObject.name == "_ar")
-        {
-            obstacleText.SetActive(true);
-            pointsScore.DecreaseObstaclePoints();
-            obstacleText.GetComponentInChildren<Text>().text = "You hit an obstacle";
-
-            for (int i = lifepanelAdd.Slots.Length -1; i >= 0 ; i--)
-            {
-                if (lifepanelAdd.Slots[i].activeSelf == true)
-                {
-                    lifepanelAdd.Slots[i].SetActive(false);
-                    break;
-                }
-            }
-            
-            
-            obstacleText.SetActive(false);
-
-        }
-    }*/
 
 }

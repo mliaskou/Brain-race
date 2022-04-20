@@ -23,6 +23,8 @@ public class TriggerRound : MonoBehaviour
 
     public Dictionary<string, int> thedictionary = new Dictionary<string, int>();
     public Vector2 scrollPosition = Vector2.zero;
+
+    [SerializeField] GameObject replayMenu;
     private void Awake()
     {
         if (File.Exists(@"myfile.txt") && File.ReadAllLines(@"myfile.txt").Length>0)
@@ -63,7 +65,20 @@ public class TriggerRound : MonoBehaviour
                 playerNameText.text = "PlayerName:" + PlayerPrefs.GetString("PlayerName");*/
                 string playerName = PlayerPrefs.GetString("PlayerName");
                 int Score = Mathf.RoundToInt(pointScore.points);
-                thedictionary.Add(playerName, Score);
+
+                if(thedictionary.ContainsKey(playerName)) // if the player already exists, find it and 
+                {
+                    if(thedictionary[playerName] < Score) // compare the new score to the previous one
+                    {
+                        thedictionary[playerName] = Score; // set the current score if it is higher
+                    }
+                    
+                }
+                else // if it does not exist, add the playername and the score
+                {
+                    thedictionary.Add(playerName, Score);
+                } 
+                //thedictionary.Add(playerName, Score);
                 File.WriteAllLines("myfile.txt", thedictionary.Select(x => x.Key + "=" + x.Value).ToArray());
                 
                 foreach( GameObject slot in lifepanelAdd.Slots)
@@ -82,10 +97,7 @@ public class TriggerRound : MonoBehaviour
                     scoreBoard.SetActive(true);
                     
                 }
-                else if(slotActive <=0)
-                {
-                    pointScore.GameOver(); // if the player has no hearts, then loses the game
-                }
+               
                 //OnGUI();
             }
         }
@@ -96,28 +108,10 @@ public class TriggerRound : MonoBehaviour
         scoreBoard.SetActive(false);
     }
 
-    /*void OnGUI()
+
+    public void DisplayReloadScene()
     {
-        GUILayout.BeginArea(new Rect(10, 300, 100, 100));
-        scrollPosition = GUILayout.BeginScrollView(scrollPosition);
-        foreach (KeyValuePair<string, int> pair in thedictionary)
-        {
-            
-            GUILayout.Label(pair.Key + " : " + pair.Value);
-            if (pair.Value > 0)
-            {
-                if (GUILayout.Button("Reduce", GUILayout.Width(70)))
-                {
-                    thedictionary[pair.Key] = thedictionary[pair.Key] - 1;
-                }
-            }
-            GUILayout.EndHorizontal();
-        }
-
-        foreach (KeyValuePair<string, int> d in thedictionary)
-        {
-
-        }
-
-    }*/
+        replayMenu.SetActive(true);
+        
+    }
 }

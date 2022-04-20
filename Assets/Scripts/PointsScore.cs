@@ -48,7 +48,7 @@ public class PointsScore : MonoBehaviour
         
     }
 
-    public void DecreaseScore()
+    /*public void DecreaseScore()
     {
         points -=minPoints ;
         Debug.Log(" Losing" + points);
@@ -61,13 +61,7 @@ public class PointsScore : MonoBehaviour
         }
         
        
-    }
-
-    public void DecreaseObstaclePoints()
-    {
-        points -= 1;
-        txt.text = "Points:" + points;
-    }
+    }*/
 
     public void GameOver()
     {

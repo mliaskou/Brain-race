@@ -17,7 +17,7 @@ public class LifeBonusGain : MonoBehaviour
     public LifePanelAdd lifepanelAdd;
     public PointsScore pointsScore;
 
-    private bool livesAreActive = true;
+    private bool livesAreActive = false;
     public void Start()
     {
         obstacleText.SetActive(false);
@@ -28,13 +28,17 @@ public class LifeBonusGain : MonoBehaviour
 
     public void Update()
     {
-        for (int i = 0; i < lifePanelAdd.Slots.Length; i++)
+        for (int i = 0; i < lifePanelAdd.Slots.Length; i++) // If the lives reach zero, then the game is over
         {
-            if (lifePanelAdd.Slots[i].activeSelf == false)
+            if (lifePanelAdd.Slots[i].activeSelf == true)
+            {
+                livesAreActive = true;
+                break;
+            }
+            else
             {
                 livesAreActive = false;
-
-                break;
+                
             }
 
             Debug.Log("IsEmpty");
@@ -42,7 +46,7 @@ public class LifeBonusGain : MonoBehaviour
 
         if (livesAreActive ==false)
         {
-            
+            pointsScore.GameOver();
         }
     }
 
@@ -86,7 +90,6 @@ public class LifeBonusGain : MonoBehaviour
         if (col.gameObject.CompareTag("Obstacle"))
         {
             obstacleText.SetActive(true);
-            pointsScore.DecreaseObstaclePoints();
             obstacleText.GetComponentInChildren<Text>().text = "You hit an obstacle";
           }
         for (int i = lifepanelAdd.Slots.Length - 1; i >= 0; i--)

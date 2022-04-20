@@ -22,7 +22,7 @@ public class Points : MonoBehaviour
     {
         if(isCollided == false)
         {
-            pointScore.DecreaseScore();
+            //pointScore.DecreaseScore();
         }
         
     }
@@ -49,7 +49,7 @@ public class Points : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             isCollided = false;
-            pointScore.DecreaseScore();
+            //pointScore.DecreaseScore();
         }
     }
 
