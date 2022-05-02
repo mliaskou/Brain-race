@@ -32,6 +32,6 @@ public class GamerName : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("StartScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
     }
 }

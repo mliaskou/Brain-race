@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AudioSource))]
 public class LineChangeColor : MonoBehaviour
 {
 
@@ -25,7 +27,10 @@ public class LineChangeColor : MonoBehaviour
 
     private Vector3[] positions = new Vector3[3];
     private Vector3[] pos;
-    //public AudioSource notCollisionMusic;
+
+    
+    public AudioClip lineClip;
+    public AudioSource lineSound;
 
     private void Start()
     {
@@ -37,7 +42,8 @@ public class LineChangeColor : MonoBehaviour
         rendererLine.startColor = bodyColor;
         rendererLine.endColor = bodyColor;//colorGradient.SetKeys(new GradientColorKey[] { new GradientColorKey(bodyColor, 1.0f) },
                                           //new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 1.0f) });
-        //notCollisionMusic.enabled = false;
+                                          //notCollisionMusic.enabled = false
+        
     }
 
     private void FixedUpdate()
@@ -46,7 +52,7 @@ public class LineChangeColor : MonoBehaviour
         SetPositionsLineRenderer();
     }
 
-
+    
     void SetPositionsLineRenderer()
     {
         Renderer renderedBody = carBody.GetComponent<MeshRenderer>();
@@ -64,18 +70,26 @@ public class LineChangeColor : MonoBehaviour
         if (isCollided == true)
         {
             pointScore.IncreaseScore();
+            if(!lineSound.isPlaying)
+            {
+                lineSound.PlayOneShot(lineClip);
+            }
+            
             rendererLine.startColor = bodyColor;
             rendererLine.endColor = bodyColor;
             isCollided = false;
+           
             //notCollisionMusic.enabled = false;
 
         }
         else if (isCollided == false)
         {
             //pointScore.DecreaseScore();
+            lineSound.Stop();
             rendererLine.startColor = Color.black;
             rendererLine.endColor = Color.black;
             //notCollisionMusic.enabled = true;
+            
         }
     }
 

@@ -70,19 +70,5 @@ public class PointsScore : MonoBehaviour
         carController.speed = 0;
         ReloadScenePanel.SetActive(true);
     }
-    public void ReloadScene()
-    {
-        StartCoroutine("ReloadSceneAgain");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    IEnumerator ReloadSceneAgain()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("FirstScene");
-    }
+   
 }

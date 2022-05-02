@@ -90,7 +90,7 @@ public class StateManager : MonoBehaviour
     }
     public void NextScene()
     {
-        SceneManager.LoadScene("SampleScene");
-        
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+      
     }
 }

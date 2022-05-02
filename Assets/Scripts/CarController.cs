@@ -68,7 +68,6 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         timeLeft -= Time.deltaTime;
-        //timeText.text = (timeLeft).ToString("0");
         timeLeft = Mathf.Clamp(timeLeft, 0, 3);
         timeText.text = (timeLeft).ToString("0");
         if (timeLeft<=0)

@@ -474,8 +474,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -148}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -149.6}
+  m_SizeDelta: {x: 160, y: 26.75177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075352405
 MonoBehaviour:
@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1995485675}
+  playerName: 
 --- !u!4 &1365699254
 Transform:
   m_ObjectHideFlags: 0

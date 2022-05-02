@@ -48,6 +48,7 @@ public class NameOfPlayer : MonoBehaviour
     }
     public void LoadScene()
     {
-        SceneManager.LoadScene("StartScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
+        
     }
 }
