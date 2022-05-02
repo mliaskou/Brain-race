@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PointsScore : MonoBehaviour
@@ -47,21 +44,6 @@ public class PointsScore : MonoBehaviour
           txt.text = "Points:" + Mathf.RoundToInt(points);
         
     }
-
-    /*public void DecreaseScore()
-    {
-        points -=minPoints ;
-        Debug.Log(" Losing" + points);
-        txt.text = "Points:" + Mathf.RoundToInt(points);
-        if (points <= minPoints)
-        {
-            points = 0;
-            txt.text = "Points:" + Mathf.RoundToInt(points);
-            //GameOver();
-        }
-        
-       
-    }*/
 
     public void GameOver()
     {

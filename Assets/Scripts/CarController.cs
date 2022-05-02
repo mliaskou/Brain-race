@@ -32,7 +32,6 @@ public class CarController : MonoBehaviour
 
 
     private float SteerAngle;
-    public StateManager stateManager;
 
     [SerializeField] private float maxSteeringAngle = 110f;
     [SerializeField] private float minSteeringAngle = 40f;
@@ -45,8 +44,6 @@ public class CarController : MonoBehaviour
     public float speedMax;
     public float speedMin = 0f;
 
-    
-    private int timeStart =3;
     [SerializeField] Text timeText;
     [SerializeField] GameObject rightText;
     [SerializeField] GameObject leftText;
@@ -54,16 +51,9 @@ public class CarController : MonoBehaviour
   
     public void Awake()
     {
-        
-        cube.GetComponent<MeshRenderer>().material.color = StateManager.carColor;
+        cube.GetComponent<MeshRenderer>().material.color = Player.Instance.GetCarColor();
         
     }
-
-    private void Update()
-    {
-      
-    }
-   
 
     private void FixedUpdate()
     {
@@ -157,8 +147,5 @@ public class CarController : MonoBehaviour
         SteerAngle = maxSteeringAngle * horizontalInput;
         return SteerAngle;
     }
-
-
- 
 
 }

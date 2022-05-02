@@ -6,12 +6,16 @@ using System.Linq;
 
 public class ReadScoreBoard : MonoBehaviour
 {
-    [SerializeField] GameObject scoreBoard;
+    public GameObject scoreBoard;
     public Dictionary<string, int> thedictionary = new Dictionary<string, int>();
     // Start is called before the first frame update
     public void ShowScoreBoard()
     {
+        scoreBoard.SetActive(true);
+    }
 
+    public ReadScoreBoard()
+    {
         if (File.Exists(@"myfile.txt") && File.ReadAllLines(@"myfile.txt").Length > 0)
         {
             thedictionary = File.ReadAllLines(@"myfile.txt")
@@ -21,10 +25,9 @@ public class ReadScoreBoard : MonoBehaviour
             thedictionary = thedictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
         }
-        scoreBoard.SetActive(true);
     }
 
-    public void DisableScoreBoard()
+    public void CloseScoreBoard()
     {
         scoreBoard.SetActive(false);
     }

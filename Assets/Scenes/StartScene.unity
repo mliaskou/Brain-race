@@ -549,9 +549,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 792680245}
-        m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
-        m_MethodName: NextScene
+      - m_Target: {fileID: 1997136975}
+        m_TargetAssemblyTypeName: HandleScenes, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -979,6 +979,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597707327}
   m_CullTransparentMesh: 0
+--- !u!1 &752573663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752573665}
+  - component: {fileID: 752573664}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &752573664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752573663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857f0e5913f7e7a4683ac5b86e8a757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &752573665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752573663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 346.6894, y: 243.64517, z: 86.395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792680244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe23bc52cf2dc94db4c3de244db8bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 792680245}
   cube: {fileID: 8204707764749017296}
   car: {fileID: 919132147631161879}
   red: {r: 1, g: 0, b: 0, a: 1}
@@ -1016,10 +1058,10 @@ MonoBehaviour:
   green: {r: 0, g: 1, b: 0, a: 1}
   yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   white: {r: 1, g: 1, b: 1, a: 1}
-  turnSpeed: 2
   prefab: {fileID: 919132147631161879}
   line: {fileID: 5927484019795273506, guid: 51147764d58ba78499fa2766a5c3b442, type: 3}
   playerTxt: {fileID: 509324905}
+  handleScenes: {fileID: 1997136975}
 --- !u!4 &792680246
 Transform:
   m_ObjectHideFlags: 0
@@ -2075,6 +2117,7 @@ GameObject:
   - component: {fileID: 1997136971}
   - component: {fileID: 1997136970}
   - component: {fileID: 1997136974}
+  - component: {fileID: 1997136975}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2172,6 +2215,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1997136969}
+--- !u!114 &1997136975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997136969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a868dc3e74c429648b07fefca298852e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2059350310
 GameObject:
   m_ObjectHideFlags: 0

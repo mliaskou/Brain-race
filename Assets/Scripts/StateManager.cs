@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+﻿using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public StateManager Instance;
     public GameObject cube;
     public GameObject car;
     public Color red = Color.red;
@@ -16,38 +12,21 @@ public class StateManager : MonoBehaviour
     public Color yellow = Color.yellow;
     public Color white = Color.white;
 
-    public float turnSpeed = 2;
     public GameObject prefab;
-
     
     public static Color carColor;
 
     public GameObject line;
 
     public Text playerTxt;
-    
-    void Awake()
-    {
-        
-        // if the singleton hasn't been initialized yet
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;//Avoid doing anything else
-        }
 
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-
-        
-    }
+    public HandleScenes handleScenes;
+  
 
     private void Start()
     {
-        NameOfPlayer nameOfPlayer = GameObject.FindObjectOfType<NameOfPlayer>();
-
-        playerTxt.text = PlayerPrefs.GetString("PlayerName");
-        carColor = blue;
+        playerTxt.text = Player.Instance.getPlayerName();
+        
     }
     public void ShowIt()
     {
@@ -55,29 +34,28 @@ public class StateManager : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.name == "Yellow")
         {
             cube.GetComponent<MeshRenderer>().material.color = yellow;
-            carColor = yellow;
-           
+            Player.Instance.SetCarColor(yellow);
         }
 
         if(EventSystem.current.currentSelectedGameObject.name == "Red")
         {
             cube.GetComponent<MeshRenderer>().material.color = red;
-            carColor = red;
+            Player.Instance.SetCarColor(red);
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Blue")
         {
             cube.GetComponent<MeshRenderer>().material.color = blue;
-            carColor = blue;
+            Player.Instance.SetCarColor(blue);
         }
         if (EventSystem.current.currentSelectedGameObject.name == "Green")
         {
             cube.GetComponent<MeshRenderer>().material.color = green;
-            carColor = green;
+            Player.Instance.SetCarColor(green);
         }
         if (EventSystem.current.currentSelectedGameObject.name == "White")
         {
             cube.GetComponent<MeshRenderer>().material.color = white;
-            carColor = white;
+            Player.Instance.SetCarColor(white);
         }
     }
 
@@ -85,12 +63,8 @@ public class StateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            NextScene();
+            handleScenes.StartGame();
         }
     }
-    public void NextScene()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
-      
-    }
+   
 }

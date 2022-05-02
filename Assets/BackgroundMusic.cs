@@ -19,10 +19,6 @@ public class BackgroundMusic : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         Scene scene = SceneManager.GetActiveScene();

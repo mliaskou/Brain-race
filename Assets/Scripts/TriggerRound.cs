@@ -6,14 +6,13 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 
-public class TriggerRound : MonoBehaviour
+public class TriggerRound : ReadScoreBoard
 {
     private int round = 0;
     
     public PointsScore pointScore;
     public int initialPoints;
     public int saveFinalPoints;
-    public GameObject scoreBoard;
     private int slotActive =0;
     //public Text playerNameText;
 
@@ -21,34 +20,20 @@ public class TriggerRound : MonoBehaviour
     public CarController carController;
    
 
-    public Dictionary<string, int> thedictionary = new Dictionary<string, int>();
     public Vector2 scrollPosition = Vector2.zero;
 
     [SerializeField] GameObject replayMenu;
-    private void Awake()
-    {
-        if (File.Exists(@"myfile.txt") && File.ReadAllLines(@"myfile.txt").Length>0)
-        {
-            thedictionary = File.ReadAllLines(@"myfile.txt")
-                                       .Select(x => x.Split('='))
-                                       .ToDictionary(x => x[0], x => Int32.Parse(x[1]));
-
-            thedictionary = thedictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-        }
-        pointScore = GameObject.FindObjectOfType<PointsScore>();
-    }
-
 
     public void Update()
     {
-        initialPoints = PlayerPrefs.GetInt("finalPoints", 0);
+        initialPoints = Player.Instance.getPlayerScore();
     }
 
 
     public void SetFinalScore()
     {
-        saveFinalPoints = Mathf.RoundToInt(pointScore.points);
-        PlayerPrefs.SetInt("finalPoints", saveFinalPoints);
+        
+        Player.Instance.setPlayerScore(saveFinalPoints);
 
 
     }
@@ -59,11 +44,7 @@ public class TriggerRound : MonoBehaviour
             round++;
             if (round >= 2)
             {
-                /*finalScoreObject.SetActive(true);
-                finalScore.text = "Final score is:  " + Mathf.RoundToInt(pointScore.points);
-                 SetFinalScore();
-                playerNameText.text = "PlayerName:" + PlayerPrefs.GetString("PlayerName");*/
-                string playerName = PlayerPrefs.GetString("PlayerName");
+                string playerName = Player.Instance.getPlayerName();
                 int Score = Mathf.RoundToInt(pointScore.points);
 
                 if(thedictionary.ContainsKey(playerName)) // if the player already exists, find it and 
@@ -98,16 +79,9 @@ public class TriggerRound : MonoBehaviour
                     
                 }
                
-                //OnGUI();
             }
         }
     }
-
-    public void CloseWindow()
-    {
-        scoreBoard.SetActive(false);
-    }
-
 
     public void DisplayReloadScene()
     {

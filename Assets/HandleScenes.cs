@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HandleScenes: MonoBehaviour
 {
-    public void StartGame()
+    public void PlayerNameEntry()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("FirstScene");
         
@@ -19,18 +19,15 @@ public class HandleScenes: MonoBehaviour
     }
 
 
-    public void ReloadScene()
+    public void StartGame()
     {
-        StartCoroutine("ReloadSceneAgain");
-    }
-
-    IEnumerator ReloadSceneAgain()
-    {
-        yield return new WaitForSeconds(1f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
-
     }
 
+    public void CarColorEntry()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
+    }
     public void ReturnBacktoMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");

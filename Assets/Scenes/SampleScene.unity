@@ -4838,7 +4838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &381229364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9243,7 +9243,6 @@ MonoBehaviour:
   yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   white: {r: 1, g: 1, b: 1, a: 1}
   cube: {fileID: 8204707763712132696}
-  stateManager: {fileID: 0}
   maxSteeringAngle: 110
   minSteeringAngle: 40
   speedTxt: {fileID: 1612096577}
@@ -10404,7 +10403,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1273514690}
         m_TargetAssemblyTypeName: HandleScenes, Assembly-CSharp
-        m_MethodName: ReloadScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13035,6 +13034,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1119597445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1119597447}
+  - component: {fileID: 1119597446}
+  - component: {fileID: 1119597448}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &1119597446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119597445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857f0e5913f7e7a4683ac5b86e8a757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1119597447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119597445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 346.6894, y: 243.64517, z: 86.395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1119597448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119597445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b071835ae041041ad8a3084f311da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBoard: {fileID: 0}
 --- !u!1 &1130984005
 GameObject:
   m_ObjectHideFlags: 0
@@ -20585,11 +20641,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
---- !u!1 &1851459426 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3562686505371877375, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
-  m_PrefabInstance: {fileID: 3562686505671440541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1857902373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21655,7 +21706,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1273514690}
         m_TargetAssemblyTypeName: HandleScenes, Assembly-CSharp
-        m_MethodName: ReloadScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28535,10 +28586,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23822f0490309964bafa84a71789d7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreBoard: {fileID: 3562686505671440542}
   pointScore: {fileID: 390068873}
   initialPoints: 0
   saveFinalPoints: 0
-  scoreBoard: {fileID: 1851459426}
   lifepanelAdd: {fileID: 1552287438}
   carController: {fileID: 722278865}
   scrollPosition: {x: 50, y: 50}
@@ -31447,6 +31498,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2095000882}
+    - target: {fileID: 3562686504896355293, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseScoreBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562686504896355293, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ReadScoreBoard, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3562686504987571857, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -31603,6 +31662,10 @@ PrefabInstance:
       propertyPath: triggerRound
       value: 
       objectReference: {fileID: 2095000882}
+    - target: {fileID: 3562686505740754677, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
+      propertyPath: readScoreBoard
+      value: 
+      objectReference: {fileID: 1119597448}
     - target: {fileID: 3562686505898946837, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -31657,6 +31720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
+--- !u!1 &3562686505671440542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3562686505371877375, guid: 59ce885ab272a3841bdb700692b22cef, type: 3}
+  m_PrefabInstance: {fileID: 3562686505671440541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3655000510211430350
 GameObject:
   m_ObjectHideFlags: 0
