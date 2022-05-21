@@ -8,7 +8,7 @@ public class HandleScenes: MonoBehaviour
 {
     public void PlayerNameEntry()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("FirstScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
         
     }
 
@@ -32,4 +32,6 @@ public class HandleScenes: MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
+
+
 }

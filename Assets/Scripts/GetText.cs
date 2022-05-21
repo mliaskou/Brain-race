@@ -10,14 +10,14 @@ public class GetText : MonoBehaviour
 
     public GameObject playerScore;
 
-    //public TriggerRound triggerRound;
-    public ReadScoreBoard readScoreBoard;
+    public TriggerRound triggerRound;
+    //public ReadScoreBoard readScoreBoard;
 
     public void OnEnable()
     {
         int place = 1;
 
-        foreach(KeyValuePair<string, int > pair in readScoreBoard.thedictionary)
+        foreach(KeyValuePair<string, int > pair in triggerRound.thedictionary)
         {
             GameObject scoreEntry = (GameObject)Instantiate(playerScore);// create in memory
             scoreEntry.transform.SetParent(this.transform);//shows playerprefs as child of ScoreList

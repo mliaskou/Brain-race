@@ -2,9 +2,9 @@
 
 public class Player : MonoBehaviour
 {
-    
-    private Color carColor = Color.blue;
     public static Player Instance { get; private set; }
+
+    private static Color carColor = Color.blue;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public void SetCarColor(Color color)
     {
-        carColor = color;
+       carColor = color;
     }
 
     public Color GetCarColor()
