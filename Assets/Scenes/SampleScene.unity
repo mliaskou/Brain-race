@@ -18792,7 +18792,7 @@ MonoBehaviour:
   rendererLine: {fileID: 1654397951}
   pointScore: {fileID: 390068873}
   lineClip: {fileID: 8300000, guid: 6ca06d2e6d417437484c21ade8d0ac92, type: 3}
-  lineSound: {fileID: 0}
+  lineSound: {fileID: 1778682284}
 --- !u!82 &1654397954
 AudioSource:
   m_ObjectHideFlags: 0
