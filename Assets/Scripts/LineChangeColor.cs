@@ -31,6 +31,8 @@ public class LineChangeColor : MonoBehaviour
     
     public AudioClip lineClip;
     public AudioSource lineSound;
+    public AudioClip audioIn;
+    public AudioClip audioOut;
 
     private void Start()
     {
@@ -72,7 +74,8 @@ public class LineChangeColor : MonoBehaviour
             pointScore.IncreaseScore();
             if(!lineSound.isPlaying)
             {
-                lineSound.PlayOneShot(lineClip);
+                lineSound.clip = audioIn;
+                lineSound.Play();
             }
             
             rendererLine.startColor = bodyColor;
@@ -85,7 +88,8 @@ public class LineChangeColor : MonoBehaviour
         else if (isCollided == false)
         {
             //pointScore.DecreaseScore();
-            lineSound.Stop();
+            lineSound.clip = audioOut;
+            lineSound.Play(); ;
             rendererLine.startColor = Color.black;
             rendererLine.endColor = Color.black;
             //notCollisionMusic.enabled = true;
