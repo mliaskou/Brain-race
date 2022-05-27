@@ -30,12 +30,12 @@ public class Player : MonoBehaviour
 
     public void setPlayerName(string name)
     {
-        PlayerPrefs.SetString("PlayerName", name);
+        PlayerPrefs.SetString("PlayerName", name); // Save player name
     }
 
     public string getPlayerName()
     {
-        return PlayerPrefs.GetString("PlayerName", "");
+        return PlayerPrefs.GetString("PlayerName", "");// Get player name
     }
 
     public void setPlayerScore(int score)

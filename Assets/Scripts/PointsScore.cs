@@ -23,7 +23,7 @@ public class PointsScore : MonoBehaviour
     }
     public void Update()
     {
-        minPoints = (maxPoints / lineChangeColor.LengthOfLine())* carController.currentSpeed;
+        minPoints = (maxPoints / lineChangeColor.LengthOfLine())* carController.currentSpeed; // The points depends on the length that the car crosses
        
     }
 
@@ -38,7 +38,7 @@ public class PointsScore : MonoBehaviour
         }
 
         if (points < maxPoints) 
-          points += minPoints;
+          points += minPoints;// increase the player score when the player crosses the line
          
           Debug.Log(points);
           txt.text = "Points:" + Mathf.RoundToInt(points);

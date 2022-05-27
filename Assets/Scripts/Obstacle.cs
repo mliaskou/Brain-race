@@ -20,7 +20,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "_ar")
+        if (other.gameObject.name == "_ar") // Ask force in the obstacle when tha player crashes 
         {
             //obstacleText.SetActive(true);
             Rigidbody obstacleRigidbody = this.gameObject.GetComponent<Rigidbody>();

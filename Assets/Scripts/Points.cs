@@ -31,7 +31,7 @@ public class Points : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             isCollided = true;
-            pointScore.IncreaseScore();
+            pointScore.IncreaseScore(); //Increase Score if the player enters the line
         }
     }
 

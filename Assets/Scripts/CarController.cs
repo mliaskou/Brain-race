@@ -55,9 +55,9 @@ public class CarController : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() // We use FixedUpdate when we use Physics
     {
-        timeLeft -= Time.deltaTime;
+        timeLeft -= Time.deltaTime; // Set the timer
         timeLeft = Mathf.Clamp(timeLeft, 0, 3);
         timeText.text = (timeLeft).ToString("0");
         if (timeLeft<=0)
@@ -74,20 +74,20 @@ public class CarController : MonoBehaviour
 
     public void GetInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");// Take Horizontal Axis 
+        verticalInput = Input.GetAxis("Vertical"); // Take Vertical Axis
         
     }
     private void HandleMotor()
     {
         
-        transform.position += transform.forward * speed * Time.deltaTime;
-        if (speed > speedMax)
+        transform.position += transform.forward * speed * Time.deltaTime; // The car starts to move when the game begins
+        if (speed > speedMax) // the speed cannot be above 50
         {
             speed = speedMax;
         }
 
-        if (speed < speedMin)
+        if (speed < speedMin)// the speed cannot be below 0
         {
             speed = speedMin;
         }
@@ -99,7 +99,7 @@ public class CarController : MonoBehaviour
         //oveAside *= Time.deltaTime;
         //transform.Translate(moveAside, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // stop  the car if press space
         {
             speed = Mathf.Lerp(speed, 0, t);
             
@@ -144,7 +144,7 @@ public class CarController : MonoBehaviour
 
     private float HandleSteering()
     {
-        SteerAngle = maxSteeringAngle * horizontalInput;
+        SteerAngle = maxSteeringAngle * horizontalInput; // to turn around the car
         return SteerAngle;
     }
 

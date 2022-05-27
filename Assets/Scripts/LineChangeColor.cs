@@ -59,26 +59,26 @@ public class LineChangeColor : MonoBehaviour
     {
         Renderer renderedBody = carBody.GetComponent<MeshRenderer>();
         Color bodyColor = renderedBody.material.color;
-        for (int i = 0; i < rendererLine.positionCount - 1; i++)
+        for (int i = 0; i < rendererLine.positionCount - 1; i++) 
         {
             //Debug.Log("Position " + i + " is " + rendererLine.GetPosition(i));
             //Debug.Log("Position " + (i + 1) + " is " + rendererLine.GetPosition(i + 1));
             if (Physics.Linecast(rendererLine.GetPosition(i), rendererLine.GetPosition(i + 1), layermask))
             {
                 isCollided = true;
-                Debug.DrawLine(rendererLine.GetPosition(i), rendererLine.GetPosition(i + 1), Color.white, 2.5f);
+                Debug.DrawLine(rendererLine.GetPosition(i), rendererLine.GetPosition(i + 1), Color.white, 2.5f); // Create line from one point to other
             }
         }
         if (isCollided == true)
         {
             pointScore.IncreaseScore();
-            if(!lineSound.isPlaying)
+            if(!lineSound.isPlaying)// sound play if enters the line
             {
                 lineSound.clip = audioIn;
                 lineSound.Play();
             }
             
-            rendererLine.startColor = bodyColor;
+            rendererLine.startColor = bodyColor; // the color of the line is the cxolor that you chose in previous scene
             rendererLine.endColor = bodyColor;
             isCollided = false;
            

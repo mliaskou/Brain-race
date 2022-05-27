@@ -16,6 +16,6 @@ public class TurnAround : MonoBehaviour
     void FixedUpdate()
     {
         
-        car.transform.Rotate(0.0f, -1f, 0.0f, Space.Self);
+        car.transform.Rotate(0.0f, -1f, 0.0f, Space.Self); // the car rotates in the scene when you choose color
     }
 }

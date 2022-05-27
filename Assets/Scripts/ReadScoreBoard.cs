@@ -11,14 +11,14 @@ public class ReadScoreBoard : MonoBehaviour
     // Start is called before the first frame update
     public void ShowScoreBoard()
     {
-        scoreBoard.SetActive(true);
+        scoreBoard.SetActive(true); 
     }
 
     public ReadScoreBoard()
     {
         if (File.Exists(@"myfile.txt") && File.ReadAllLines(@"myfile.txt").Length > 0)
         {
-            thedictionary = File.ReadAllLines(@"myfile.txt")
+            thedictionary = File.ReadAllLines(@"myfile.txt") // Read the txt file and convert the information to the dictionary
                                        .Select(x => x.Split('='))
                                        .ToDictionary(x => x[0], x => System.Int32.Parse(x[1]));
 

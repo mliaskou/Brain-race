@@ -40,14 +40,14 @@ public class LifeBonusGain : MonoBehaviour
     {
         for (int i = 0; i < lifePanelAdd.Slots.Length; i++) // If the lives reach zero, then the game is over
         {
-            if (lifePanelAdd.Slots[i].activeSelf == true)
+            if (lifePanelAdd.Slots[i].activeSelf == true) 
             {
-                livesAreActive = true;
+                livesAreActive = true;// If player gets all the lives
                 break;
             }
             else
             {
-                livesAreActive = false;  
+                livesAreActive = false;  // if player loses all the lives then the game is over
             }
             Debug.Log("IsEmpty");
         }
@@ -72,13 +72,13 @@ public class LifeBonusGain : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Heart"))
         {
-            Debug.Log(other.gameObject.GetComponent<AudioSource>().clip);
+            Debug.Log(other.gameObject.GetComponent<AudioSource>().clip); 
             for (int i = 0; i <lifePanelAdd.Slots.Length; i++)
             {
                 if (lifePanelAdd.Slots[i].activeSelf == false)
                 {
                     lifePanelAdd.Slots[i].SetActive(true);
-                    other.gameObject.GetComponent<AudioSource>().Play();
+                    other.gameObject.GetComponent<AudioSource>().Play();//play the "heart" audio
                     break;
                 }
             }

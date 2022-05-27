@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class DictionaryScoreBoard : MonoBehaviour
 {
-    public GameObject playerScore;
+    public GameObject playerScore; // Assign the username, score
 
-    public ReadScoreBoard readScoreBoard;
+    public ReadScoreBoard readScoreBoard; // Take the values assigned in dictionary
 
 
     public void OnEnable()
