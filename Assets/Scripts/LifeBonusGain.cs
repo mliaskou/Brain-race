@@ -13,15 +13,15 @@ public class LifeBonusGain : MonoBehaviour
     public GameObject car;
 
     public int forceApplied = 2;
-
-    public LifePanelAdd lifepanelAdd;
     
+    public LifePanelAdd lifepanelAdd;
 
     private bool livesAreActive = false;
     [SerializeField] GameObject reloadScenePanel;
     [SerializeField] GameObject pauseGamePanel;
     [SerializeField] GameObject gameOverText;
     [SerializeField] Image wreckedCarImage;
+    [SerializeField] GameObject HeartEffect;
 
     IEnumerator AfterSoundClip(AudioSource audio, System.Action f)
     {
@@ -83,8 +83,9 @@ public class LifeBonusGain : MonoBehaviour
                 }
             }
             StartCoroutine(AfterSoundClip(other.gameObject.GetComponent<AudioSource>(), () =>
-            {
+            {   
                 Destroy(other.gameObject);
+                GameObject heartVFX = Instantiate(HeartEffect, other.gameObject.transform.position, other.gameObject.transform.rotation);
             }));
             
         }
