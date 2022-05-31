@@ -8,11 +8,9 @@ using System;
 public class CarController : MonoBehaviour
 {
     public float speed = 10;
-    public float speedRotation = 0;
     public float brakes;
 
     public float currentSpeed;
-    public float moveAside;
 
     private float horizontalInput;
     private float verticalInput;
@@ -30,13 +28,6 @@ public class CarController : MonoBehaviour
     public Color white = Color.white;
     public GameObject cube;
 
-
-    private float SteerAngle;
-
-    [SerializeField] private float maxSteeringAngle = 110f;
-    [SerializeField] private float minSteeringAngle = 40f;
-
-    private Vector3 lastPosition;
 
     public Text speedTxt;
     private float powerUpStrength = 20f;
@@ -64,7 +55,6 @@ public class CarController : MonoBehaviour
         {
             GetInput();
             HandleMotor();
-            HandleSteering();
             timeLeft = 0;
             timeText.enabled = false;
 
@@ -91,13 +81,8 @@ public class CarController : MonoBehaviour
         {
             speed = speedMin;
         }
-        if (lastPosition.z > 0)
-        {
-            currentSpeed = Vector3.Distance(transform.position, lastPosition);
-        }
-        //moveAside = speed * horizontalInput;
-        //oveAside *= Time.deltaTime;
-        //transform.Translate(moveAside, 0, 0);
+
+     
 
         if (Input.GetKeyDown(KeyCode.Space)) // stop  the car if press space
         {
@@ -136,16 +121,8 @@ public class CarController : MonoBehaviour
             speed -= 2;
         }
 
-       
-        lastPosition = transform.position;
-
         speedTxt.text = "Speed:" + speed.ToString();
     }
 
-    private float HandleSteering()
-    {
-        SteerAngle = maxSteeringAngle * horizontalInput; // to turn around the car
-        return SteerAngle;
-    }
 
 }
