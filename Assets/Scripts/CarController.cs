@@ -31,6 +31,7 @@ public class CarController : MonoBehaviour
 
     public Text speedTxt;
     private float powerUpStrength = 20f;
+    private float forceApplied = 1.2f;
 
     public float speedMax;
     public float speedMin = 0f;
@@ -41,8 +42,8 @@ public class CarController : MonoBehaviour
     [SerializeField] float timeLeft = 3.0f;
 
     private Vector3 lastPosition;
-    public Rigidbody rb;
-
+    private Rigidbody rb;
+    [SerializeField] GameObject obstacleText;
     public void Awake()
     {
         cube.GetComponent<MeshRenderer>().material.color = Player.Instance.GetCarColor();
@@ -137,7 +138,8 @@ public class CarController : MonoBehaviour
         Debug.Log("Collision!");
         if (col.gameObject.name == "obstacle")
         {
-            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward*speed, ForceMode.Impulse);
+            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward*speed*forceApplied, ForceMode.Impulse);
+            obstacleText.SetActive(true);
         }
     }
 
