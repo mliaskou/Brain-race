@@ -26,8 +26,7 @@ public class Obstacle : MonoBehaviour
             Rigidbody obstacleRigidbody = this.gameObject.GetComponent<Rigidbody>();
             int carSpeed = (int)carController.speed;
             Vector3 awayfromObstacle = ( carPosition.gameObject.transform.position- this.transform.position );
-            obstacleRigidbody.AddForce(awayfromObstacle * forceApplied, ForceMode.Impulse);
-            //obstacleRigidbody.MovePosition(this.transform.position * carSpeed);
+            obstacleRigidbody.AddForce(awayfromObstacle * forceApplied*carSpeed, ForceMode.Impulse);
         }
 
     }  

@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 66076765}
   - component: {fileID: 66076764}
   m_Layer: 0
-  m_Name: obstacle (4)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,9 +1150,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66076762}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1169,8 +1169,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.025549455, y: 0.009049487, z: 0.01692694}
-  m_Center: {x: 0.00016321898, y: -0.00012259404, z: 0.008549897}
+  m_Size: {x: 0.025549455, y: 0.009049476, z: 0.01692694}
+  m_Center: {x: 0.00016321898, y: -0.0001225994, z: 0.008549897}
 --- !u!23 &66076767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6925,7 +6925,7 @@ GameObject:
   - component: {fileID: 466576780}
   - component: {fileID: 466576779}
   m_Layer: 0
-  m_Name: obstacle (5)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7049,9 +7049,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466576777}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -8041,7 +8041,7 @@ GameObject:
   - component: {fileID: 577181804}
   - component: {fileID: 577181808}
   m_Layer: 0
-  m_Name: obstacle (11)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8069,9 +8069,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577181802}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -9646,10 +9646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  speedRotation: 0
   brakes: 0
   currentSpeed: 0
-  moveAside: 0
   brakeForce: 10
   red: {r: 1, g: 0, b: 0, a: 1}
   blue: {r: 0, g: 0, b: 1, a: 1}
@@ -9657,8 +9655,6 @@ MonoBehaviour:
   yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   white: {r: 1, g: 1, b: 1, a: 1}
   cube: {fileID: 8204707763712132696}
-  maxSteeringAngle: 110
-  minSteeringAngle: 40
   speedTxt: {fileID: 1612096577}
   speedMax: 50
   speedMin: 0
@@ -9666,6 +9662,7 @@ MonoBehaviour:
   rightText: {fileID: 462857585}
   leftText: {fileID: 1597050102}
   timeLeft: 3
+  rb: {fileID: 0}
 --- !u!1001 &738487789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12301,7 +12298,7 @@ GameObject:
   - component: {fileID: 967895190}
   - component: {fileID: 967895189}
   m_Layer: 0
-  m_Name: obstacle (6)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12425,9 +12422,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967895187}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -13694,7 +13691,7 @@ GameObject:
   - component: {fileID: 1119165118}
   - component: {fileID: 1119165122}
   m_Layer: 0
-  m_Name: obstacle (12)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13722,9 +13719,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119165116}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -15565,7 +15562,7 @@ GameObject:
   - component: {fileID: 1359154544}
   - component: {fileID: 1359154548}
   m_Layer: 0
-  m_Name: obstacle (8)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15593,9 +15590,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359154542}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -17943,7 +17940,7 @@ GameObject:
   - component: {fileID: 1584409489}
   - component: {fileID: 1584409493}
   m_Layer: 0
-  m_Name: obstacle (10)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17971,9 +17968,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584409487}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -19218,7 +19215,7 @@ GameObject:
   - component: {fileID: 1659311561}
   - component: {fileID: 1659311565}
   m_Layer: 0
-  m_Name: obstacle (9)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19246,9 +19243,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659311559}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -29991,7 +29988,7 @@ GameObject:
   - component: {fileID: 2070329626}
   - component: {fileID: 2070329625}
   m_Layer: 0
-  m_Name: obstacle (7)
+  m_Name: obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30115,9 +30112,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070329623}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 1
-  m_AngularDrag: 0.02
+  m_Mass: 3
+  m_Drag: 0.001
+  m_AngularDrag: 0.001
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -31604,13 +31601,13 @@ Rigidbody:
   m_GameObject: {fileID: 919132148802266271}
   serializedVersion: 2
   m_Mass: 900
-  m_Drag: 0
+  m_Drag: 0.01
   m_AngularDrag: 0.01
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!65 &919132148802266273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31622,8 +31619,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9460163, y: 2.7229877, z: 7.573074}
-  m_Center: {x: -3.7963638, y: 0.8940866, z: -2.358794}
+  m_Size: {x: 3.9460163, y: 2.7229874, z: 7.7881966}
+  m_Center: {x: -3.7963638, y: 0.8940866, z: -2.2512326}
 --- !u!114 &919132148802266274
 MonoBehaviour:
   m_ObjectHideFlags: 0

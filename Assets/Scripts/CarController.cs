@@ -39,11 +39,13 @@ public class CarController : MonoBehaviour
     [SerializeField] GameObject rightText;
     [SerializeField] GameObject leftText;
     [SerializeField] float timeLeft = 3.0f;
-  
+    public Rigidbody rb;
+
     public void Awake()
     {
         cube.GetComponent<MeshRenderer>().material.color = Player.Instance.GetCarColor();
         
+
     }
 
     private void FixedUpdate() // We use FixedUpdate when we use Physics
@@ -51,7 +53,7 @@ public class CarController : MonoBehaviour
         timeLeft -= Time.deltaTime; // Set the timer
         timeLeft = Mathf.Clamp(timeLeft, 0, 3);
         timeText.text = (timeLeft).ToString("0");
-        if (timeLeft<=0)
+        if (timeLeft <= 0)
         {
             GetInput();
             HandleMotor();
@@ -59,18 +61,18 @@ public class CarController : MonoBehaviour
             timeText.enabled = false;
 
         }
-         
+
     }
 
     public void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");// Take Horizontal Axis 
         verticalInput = Input.GetAxis("Vertical"); // Take Vertical Axis
-        
+
     }
     private void HandleMotor()
     {
-        
+
         transform.position += transform.forward * speed * Time.deltaTime; // The car starts to move when the game begins
         if (speed > speedMax) // the speed cannot be above 50
         {
@@ -82,12 +84,12 @@ public class CarController : MonoBehaviour
             speed = speedMin;
         }
 
-     
+
 
         if (Input.GetKeyDown(KeyCode.Space)) // stop  the car if press space
         {
             speed = Mathf.Lerp(speed, 0, t);
-            
+
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
@@ -106,17 +108,17 @@ public class CarController : MonoBehaviour
             leftText.SetActive(true);
         }
         else
-           
+
         {
             leftText.SetActive(false);
         }
 
-        t += 0.2f *Time.fixedDeltaTime;
-       if(Input.GetKeyDown(KeyCode.UpArrow))
+        t += 0.2f * Time.fixedDeltaTime;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             speed += 2;
         }
-       else if(Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             speed -= 2;
         }
@@ -124,5 +126,13 @@ public class CarController : MonoBehaviour
         speedTxt.text = "Speed:" + speed.ToString();
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("Collision!");
+        if (col.gameObject.name == "obstacle")
+        {
+            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward*speed, ForceMode.Impulse);
+        }
+    }
 
 }
