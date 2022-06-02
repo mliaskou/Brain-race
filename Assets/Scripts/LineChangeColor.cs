@@ -34,6 +34,7 @@ public class LineChangeColor : MonoBehaviour
     public AudioClip audioIn;
     public AudioClip audioOut;
 
+    private bool soundPlayed =false;
     private void Start()
     {
         Renderer renderedBody = carBody.GetComponent<MeshRenderer>();
@@ -72,11 +73,19 @@ public class LineChangeColor : MonoBehaviour
         if (isCollided == true)
         {
             pointScore.IncreaseScore();
-            if(!lineSound.isPlaying)// sound play if enters the line
+           
+            if(!soundPlayed)
             {
-                lineSound.clip = audioIn;
-                lineSound.Play();
+
+                if (!lineSound.isPlaying)// sound play if enters the line
+                {
+                    
+                    lineSound.PlayOneShot(audioIn);
+                    soundPlayed = true;
+
+                }
             }
+           
             
             rendererLine.startColor = bodyColor; // the color of the line is the cxolor that you chose in previous scene
             rendererLine.endColor = bodyColor;
@@ -87,9 +96,13 @@ public class LineChangeColor : MonoBehaviour
         }
         else if (isCollided == false)
         {
-            //pointScore.DecreaseScore();
-            lineSound.clip = audioOut;
-            lineSound.Play(); ;
+            if (soundPlayed)
+            {
+                soundPlayed = false;
+                lineSound.PlayOneShot(audioOut);
+               
+            }
+            ;
             rendererLine.startColor = Color.black;
             rendererLine.endColor = Color.black;
             //notCollisionMusic.enabled = true;

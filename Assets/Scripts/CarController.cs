@@ -39,6 +39,8 @@ public class CarController : MonoBehaviour
     [SerializeField] GameObject rightText;
     [SerializeField] GameObject leftText;
     [SerializeField] float timeLeft = 3.0f;
+
+    private Vector3 lastPosition;
     public Rigidbody rb;
 
     public void Awake()
@@ -84,8 +86,12 @@ public class CarController : MonoBehaviour
             speed = speedMin;
         }
 
+        if(lastPosition.z>0)
+        {
+            currentSpeed = Vector3.Distance(transform.position, lastPosition);
+        }
 
-
+        lastPosition = transform.position;
         if (Input.GetKeyDown(KeyCode.Space)) // stop  the car if press space
         {
             speed = Mathf.Lerp(speed, 0, t);
