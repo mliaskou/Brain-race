@@ -34,6 +34,8 @@ public class LineChangeColor : MonoBehaviour
     public AudioClip audioIn;
     public AudioClip audioOut;
 
+    public AudioSource engineVolumeMusic;
+
     private bool soundPlayed =false;
     private void Start()
     {
@@ -73,7 +75,7 @@ public class LineChangeColor : MonoBehaviour
         if (isCollided == true)
         {
             pointScore.IncreaseScore();
-           
+            engineVolumeMusic.volume = 0.25f;
             if(!soundPlayed)
             {
 
@@ -87,15 +89,17 @@ public class LineChangeColor : MonoBehaviour
             }
            
             
-            rendererLine.startColor = bodyColor; // the color of the line is the cxolor that you chose in previous scene
+            rendererLine.startColor = bodyColor; // the color of the line is the color that you chose in previous scene
             rendererLine.endColor = bodyColor;
             isCollided = false;
            
+
             //notCollisionMusic.enabled = false;
 
         }
         else if (isCollided == false)
         {
+            StartCoroutine(DecreaseVolume());
             if (soundPlayed)
             {
                 soundPlayed = false;
@@ -120,5 +124,12 @@ public class LineChangeColor : MonoBehaviour
 
         }
         return length;
+    }
+
+
+    IEnumerator DecreaseVolume()
+    {
+        yield return new WaitForSeconds(3f);
+        engineVolumeMusic.volume = 0.5f;
     }
 }
