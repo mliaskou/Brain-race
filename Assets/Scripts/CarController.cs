@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour
 
     public Text speedTxt;
     private float powerUpStrength = 20f;
-    private float forceApplied = 1.2f;
+    private float forceApplied = 0.5f;
 
     public float speedMax;
     public float speedMin = 0f;
@@ -138,7 +138,9 @@ public class CarController : MonoBehaviour
         Debug.Log("Collision!");
         if (col.gameObject.name == "obstacle")
         {
-            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward*speed*forceApplied, ForceMode.Impulse);
+            var force = transform.position -col.transform.position;
+            force= -force.normalized;
+            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(force*speed, ForceMode.Impulse);
             obstacleText.SetActive(true);
         }
     }
