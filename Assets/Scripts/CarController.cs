@@ -51,6 +51,10 @@ public class CarController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void FixedUpdate() // We use FixedUpdate when we use Physics
     {
         timeLeft -= Time.deltaTime; // Set the timer
@@ -138,10 +142,18 @@ public class CarController : MonoBehaviour
         Debug.Log("Collision!");
         if (col.gameObject.name == "obstacle")
         {
-            var force = transform.position -col.transform.position;
-            force= -force.normalized;
-            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(force*speed, ForceMode.Impulse);
+            var force = rb.velocity.normalized + new Vector3 (0.8f, 0f, 1.5f) + new Vector3(0f, 0.2f, 0.5f) + new Vector3(-0.4f, 0f, -0.9f);
+
+            force.Normalize();
+
+            force *= speed;
+
+            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(force , ForceMode.Impulse);
             obstacleText.SetActive(true);
+            //var force = transform.position -col.transform.position;
+           // force= -force.normalized;
+            //col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(force*speed, ForceMode.Impulse);
+            //obstacleText.SetActive(true);
         }
     }
 
