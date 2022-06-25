@@ -13,4 +13,11 @@ public class NameController : MonoBehaviour
 
         Debug.Log("Your name is: " + Player.Instance.getPlayerName());
     }
+
+    private void Update()
+    {
+        Player.Instance.setPlayerName(textBox.text);
+
+        Debug.Log("Your name is: " + Player.Instance.getPlayerName());
+    }
 }

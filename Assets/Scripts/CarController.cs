@@ -30,20 +30,20 @@ public class CarController : MonoBehaviour
 
 
     public Text speedTxt;
-    private float powerUpStrength = 20f;
-    private float forceApplied = 0.5f;
 
     public float speedMax;
     public float speedMin = 0f;
 
     [SerializeField] Text timeText;
-    [SerializeField] GameObject rightText;
-    [SerializeField] GameObject leftText;
     [SerializeField] float timeLeft = 3.0f;
 
     private Vector3 lastPosition;
     private Rigidbody rb;
     [SerializeField] GameObject obstacleText;
+
+    [SerializeField] GameObject leftLight;
+    [SerializeField] GameObject rightLight;
+
     public void Awake()
     {
         cube.GetComponent<MeshRenderer>().material.color = Player.Instance.GetCarColor();
@@ -106,22 +106,22 @@ public class CarController : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(new Vector3(0, 2, 0) * Time.deltaTime * speed, Space.World);
-            rightText.SetActive(true);
+            rightLight.GetComponent<Renderer>().material.color = Color.yellow;
         }
         else
         {
-            rightText.SetActive(false);
+            rightLight.GetComponent<Renderer>().material.color = Color.black;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(new Vector3(0, -2, 0) * Time.deltaTime * speed, Space.World);
-            leftText.SetActive(true);
+            leftLight.GetComponent<Renderer>().material.color = Color.yellow;
         }
         else
 
         {
-            leftText.SetActive(false);
+            leftLight.GetComponent<Renderer>().material.color = Color.black;
         }
 
         t += 0.2f * Time.fixedDeltaTime;

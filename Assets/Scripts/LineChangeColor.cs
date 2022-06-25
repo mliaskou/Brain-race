@@ -102,9 +102,11 @@ public class LineChangeColor : MonoBehaviour
             StartCoroutine(DecreaseVolume());
             if (soundPlayed)
             {
-                soundPlayed = false;
-                lineSound.PlayOneShot(audioOut);
-               
+                if (!lineSound.isPlaying)// sound play if enters the line
+                {
+                    lineSound.PlayOneShot(audioOut);
+                    soundPlayed = false;
+                }
             }
             ;
             rendererLine.startColor = Color.black;

@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
         return carColor;
     }
 
+
     public void setPlayerName(string name)
+
     {
         PlayerPrefs.SetString("PlayerName", name); // Save player name
     }

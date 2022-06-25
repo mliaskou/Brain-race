@@ -1,3 +1,4 @@
-Mariaa=89
-Mariaaaa=66
-=75
+Maria=81
+Player=72
+Meropi=57
+I am playing=75
